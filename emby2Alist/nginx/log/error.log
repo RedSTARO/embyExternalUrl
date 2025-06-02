@@ -1,0 +1,467 @@
+2025/06/01 18:19:46 [notice] 1#1: using the "epoll" event method
+2025/06/01 18:19:46 [notice] 1#1: nginx/1.27.1
+2025/06/01 18:19:46 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/06/01 18:19:46 [notice] 1#1: OS: Linux 6.1.0-37-amd64
+2025/06/01 18:19:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/06/01 18:19:46 [notice] 1#1: start worker processes
+2025/06/01 18:19:46 [notice] 1#1: start worker process 20
+2025/06/01 18:19:46 [notice] 1#1: start worker process 21
+2025/06/01 18:19:46 [notice] 1#1: start worker process 22
+2025/06/01 18:19:46 [notice] 1#1: start worker process 23
+2025/06/01 18:19:46 [notice] 1#1: start worker process 24
+2025/06/01 18:19:46 [notice] 1#1: start worker process 25
+2025/06/01 18:19:46 [notice] 1#1: start worker process 26
+2025/06/01 18:19:46 [notice] 1#1: start worker process 27
+2025/06/01 18:19:46 [notice] 1#1: start worker process 28
+2025/06/01 18:19:46 [notice] 1#1: start worker process 29
+2025/06/01 18:19:46 [notice] 1#1: start worker process 30
+2025/06/01 18:19:46 [notice] 1#1: start worker process 31
+2025/06/01 18:19:46 [notice] 1#1: start worker process 32
+2025/06/01 18:19:46 [notice] 1#1: start worker process 33
+2025/06/01 18:19:46 [notice] 1#1: start worker process 34
+2025/06/01 18:19:46 [notice] 1#1: start worker process 35
+2025/06/01 18:19:46 [notice] 1#1: start cache manager process 36
+2025/06/01 18:19:46 [notice] 1#1: start cache loader process 37
+2025/06/01 18:19:58 [warn] 20#20: *1 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 192.168.10.118, server: default, request: "GET /web/modules/fonts/material-icons/mi_2024_05.woff2 HTTP/1.1", upstream: "http://172.17.0.1:8096/web/modules/fonts/material-icons/mi_2024_05.woff2", host: "192.168.10.1:8091"
+2025/06/01 18:19:58 [warn] 23#23: *16 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/01 18:19:58 [warn] 23#23: *16 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/01 18:19:58 [warn] 23#23: *16 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/01 18:19:58 [warn] 23#23: *16 js: cost 1ms, fetchBaseHtmlPlayer async function cost
+2025/06/01 18:19:58 [warn] 23#23: *16 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/01 18:19:59 [warn] 22#22: *15 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/2/00/0000000002 while reading upstream, client: 192.168.10.118, server: default, request: "GET /web/modules/fonts/inter/intervariable.woff2 HTTP/1.1", upstream: "http://172.17.0.1:8096/web/modules/fonts/inter/intervariable.woff2", host: "192.168.10.1:8091"
+2025/06/01 18:20:08 [warn] 24#24: *18 js: === systemInfoHandler: /emby/System/Info, the NJS VM is beginning ===
+2025/06/01 18:20:08 [warn] 24#24: *18 js: === systemInfoHandler: /emby/System/Info, the NJS VM is destroyed ===
+2025/06/01 18:20:46 [notice] 37#37: http file cache: /var/cache/nginx/emby/images 0.000M, bsize: 4096
+2025/06/01 18:20:46 [notice] 37#37: http file cache: /var/cache/nginx/emby/subtitles 0.000M, bsize: 4096
+2025/06/01 18:20:46 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2025/06/01 18:20:46 [notice] 1#1: cache loader process 37 exited with code 0
+2025/06/01 18:20:46 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:13:32 [notice] 1#1: using the "epoll" event method
+2025/06/02 04:13:32 [notice] 1#1: nginx/1.27.1
+2025/06/02 04:13:32 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/06/02 04:13:32 [notice] 1#1: OS: Linux 6.1.0-37-amd64
+2025/06/02 04:13:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/06/02 04:13:32 [notice] 1#1: start worker processes
+2025/06/02 04:13:32 [notice] 1#1: start worker process 20
+2025/06/02 04:13:32 [notice] 1#1: start worker process 21
+2025/06/02 04:13:32 [notice] 1#1: start worker process 22
+2025/06/02 04:13:32 [notice] 1#1: start worker process 23
+2025/06/02 04:13:32 [notice] 1#1: start worker process 24
+2025/06/02 04:13:32 [notice] 1#1: start worker process 25
+2025/06/02 04:13:32 [notice] 1#1: start worker process 26
+2025/06/02 04:13:32 [notice] 1#1: start worker process 27
+2025/06/02 04:13:32 [notice] 1#1: start worker process 28
+2025/06/02 04:13:32 [notice] 1#1: start worker process 29
+2025/06/02 04:13:32 [notice] 1#1: start worker process 30
+2025/06/02 04:13:32 [notice] 1#1: start worker process 31
+2025/06/02 04:13:32 [notice] 1#1: start worker process 32
+2025/06/02 04:13:32 [notice] 1#1: start worker process 33
+2025/06/02 04:13:32 [notice] 1#1: start worker process 34
+2025/06/02 04:13:32 [notice] 1#1: start worker process 35
+2025/06/02 04:13:32 [notice] 1#1: start cache manager process 36
+2025/06/02 04:13:32 [notice] 1#1: start cache loader process 37
+2025/06/02 04:14:32 [notice] 37#37: http file cache: /var/cache/nginx/emby/images 0.000M, bsize: 4096
+2025/06/02 04:14:32 [notice] 37#37: http file cache: /var/cache/nginx/emby/subtitles 0.000M, bsize: 4096
+2025/06/02 04:14:32 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2025/06/02 04:14:32 [notice] 1#1: cache loader process 37 exited with code 0
+2025/06/02 04:14:32 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/06/02 04:23:43 [notice] 20#20: gracefully shutting down
+2025/06/02 04:23:43 [notice] 21#21: gracefully shutting down
+2025/06/02 04:23:43 [notice] 23#23: gracefully shutting down
+2025/06/02 04:23:43 [notice] 22#22: gracefully shutting down
+2025/06/02 04:23:43 [notice] 20#20: exiting
+2025/06/02 04:23:43 [notice] 21#21: exiting
+2025/06/02 04:23:43 [notice] 23#23: exiting
+2025/06/02 04:23:43 [notice] 22#22: exiting
+2025/06/02 04:23:43 [notice] 24#24: gracefully shutting down
+2025/06/02 04:23:43 [notice] 25#25: gracefully shutting down
+2025/06/02 04:23:43 [notice] 26#26: gracefully shutting down
+2025/06/02 04:23:43 [notice] 27#27: gracefully shutting down
+2025/06/02 04:23:43 [notice] 29#29: gracefully shutting down
+2025/06/02 04:23:43 [notice] 28#28: gracefully shutting down
+2025/06/02 04:23:43 [notice] 24#24: exiting
+2025/06/02 04:23:43 [notice] 25#25: exiting
+2025/06/02 04:23:43 [notice] 26#26: exiting
+2025/06/02 04:23:43 [notice] 27#27: exiting
+2025/06/02 04:23:43 [notice] 29#29: exiting
+2025/06/02 04:23:43 [notice] 28#28: exiting
+2025/06/02 04:23:43 [notice] 30#30: gracefully shutting down
+2025/06/02 04:23:43 [notice] 31#31: gracefully shutting down
+2025/06/02 04:23:43 [notice] 32#32: gracefully shutting down
+2025/06/02 04:23:43 [notice] 34#34: gracefully shutting down
+2025/06/02 04:23:43 [notice] 30#30: exiting
+2025/06/02 04:23:43 [notice] 31#31: exiting
+2025/06/02 04:23:43 [notice] 36#36: exiting
+2025/06/02 04:23:43 [notice] 35#35: gracefully shutting down
+2025/06/02 04:23:43 [notice] 32#32: exiting
+2025/06/02 04:23:43 [notice] 33#33: gracefully shutting down
+2025/06/02 04:23:43 [notice] 34#34: exiting
+2025/06/02 04:23:43 [notice] 35#35: exiting
+2025/06/02 04:23:43 [notice] 33#33: exiting
+2025/06/02 04:23:43 [notice] 35#35: exit
+2025/06/02 04:23:43 [notice] 23#23: exit
+2025/06/02 04:23:43 [notice] 22#22: exit
+2025/06/02 04:23:43 [notice] 24#24: exit
+2025/06/02 04:23:43 [notice] 20#20: exit
+2025/06/02 04:23:43 [notice] 33#33: exit
+2025/06/02 04:23:43 [notice] 32#32: exit
+2025/06/02 04:23:43 [notice] 21#21: exit
+2025/06/02 04:23:43 [notice] 34#34: exit
+2025/06/02 04:23:43 [notice] 26#26: exit
+2025/06/02 04:23:43 [notice] 25#25: exit
+2025/06/02 04:23:43 [notice] 30#30: exit
+2025/06/02 04:23:43 [notice] 31#31: exit
+2025/06/02 04:23:43 [notice] 28#28: exit
+2025/06/02 04:23:43 [notice] 27#27: exit
+2025/06/02 04:23:43 [notice] 29#29: exit
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2025/06/02 04:23:43 [notice] 1#1: worker process 25 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2025/06/02 04:23:43 [notice] 1#1: worker process 24 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: worker process 20 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: worker process 33 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2025/06/02 04:23:43 [notice] 1#1: cache manager process 36 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/06/02 04:23:43 [notice] 1#1: worker process 22 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: worker process 27 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2025/06/02 04:23:43 [notice] 1#1: worker process 26 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2025/06/02 04:23:43 [notice] 1#1: worker process 32 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/06/02 04:23:43 [notice] 1#1: worker process 21 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/06/02 04:23:43 [notice] 1#1: worker process 31 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2025/06/02 04:23:43 [notice] 1#1: worker process 34 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2025/06/02 04:23:43 [notice] 1#1: worker process 23 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/06/02 04:23:43 [notice] 1#1: worker process 30 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/06/02 04:23:43 [notice] 1#1: worker process 29 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2025/06/02 04:23:43 [notice] 1#1: worker process 28 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 04:23:43 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2025/06/02 04:23:43 [notice] 1#1: worker process 35 exited with code 0
+2025/06/02 04:23:43 [notice] 1#1: exit
+2025/06/02 04:24:21 [notice] 1#1: using the "epoll" event method
+2025/06/02 04:24:21 [notice] 1#1: nginx/1.27.1
+2025/06/02 04:24:21 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/06/02 04:24:21 [notice] 1#1: OS: Linux 6.1.0-37-amd64
+2025/06/02 04:24:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/06/02 04:24:21 [notice] 1#1: start worker processes
+2025/06/02 04:24:21 [notice] 1#1: start worker process 20
+2025/06/02 04:24:21 [notice] 1#1: start worker process 21
+2025/06/02 04:24:21 [notice] 1#1: start worker process 22
+2025/06/02 04:24:21 [notice] 1#1: start worker process 23
+2025/06/02 04:24:21 [notice] 1#1: start worker process 24
+2025/06/02 04:24:21 [notice] 1#1: start worker process 25
+2025/06/02 04:24:21 [notice] 1#1: start worker process 26
+2025/06/02 04:24:21 [notice] 1#1: start worker process 27
+2025/06/02 04:24:21 [notice] 1#1: start worker process 28
+2025/06/02 04:24:21 [notice] 1#1: start worker process 29
+2025/06/02 04:24:21 [notice] 1#1: start worker process 30
+2025/06/02 04:24:21 [notice] 1#1: start worker process 31
+2025/06/02 04:24:21 [notice] 1#1: start worker process 32
+2025/06/02 04:24:21 [notice] 1#1: start worker process 33
+2025/06/02 04:24:21 [notice] 1#1: start worker process 34
+2025/06/02 04:24:21 [notice] 1#1: start worker process 35
+2025/06/02 04:24:21 [notice] 1#1: start cache manager process 36
+2025/06/02 04:24:21 [notice] 1#1: start cache loader process 37
+2025/06/02 04:25:22 [notice] 37#37: http file cache: /var/cache/nginx/emby/images 0.000M, bsize: 4096
+2025/06/02 04:25:22 [notice] 37#37: http file cache: /var/cache/nginx/emby/subtitles 0.000M, bsize: 4096
+2025/06/02 04:25:22 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2025/06/02 04:25:22 [notice] 1#1: cache loader process 37 exited with code 0
+2025/06/02 04:25:22 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:26:35 [warn] 25#25: *11 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:26:35 [warn] 25#25: *11 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:26:35 [warn] 25#25: *11 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:26:35 [warn] 25#25: *11 js: cost 26ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:26:35 [warn] 25#25: *11 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:26:35 [warn] 26#26: *13 js: === systemInfoHandler: /emby/System/Info, the NJS VM is beginning ===
+2025/06/02 05:26:35 [warn] 26#26: *13 js: === systemInfoHandler: /emby/System/Info, the NJS VM is destroyed ===
+2025/06/02 05:26:50 [warn] 24#24: *176 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:26:50 [warn] 24#24: *176 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:26:50 [warn] 24#24: *176 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:26:50 [warn] 24#24: *176 js: cost 1ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:26:50 [warn] 24#24: *176 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:31:28 [warn] 30#30: *404 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:31:28 [warn] 30#30: *404 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:31:36 [warn] 33#33: *471 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:31:36 [warn] 33#33: *471 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:33:52 [warn] 35#35: *503 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:33:52 [warn] 35#35: *503 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:33:52 [warn] 35#35: *503 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:33:52 [warn] 35#35: *503 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:33:52 [warn] 35#35: *503 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:33:52 [warn] 34#34: *502 js: === systemInfoHandler: /emby/System/Info, the NJS VM is beginning ===
+2025/06/02 05:33:52 [warn] 34#34: *502 js: === systemInfoHandler: /emby/System/Info, the NJS VM is destroyed ===
+2025/06/02 05:36:27 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/06/02 05:36:27 [notice] 20#20: gracefully shutting down
+2025/06/02 05:36:27 [notice] 22#22: gracefully shutting down
+2025/06/02 05:36:27 [notice] 24#24: gracefully shutting down
+2025/06/02 05:36:27 [notice] 25#25: gracefully shutting down
+2025/06/02 05:36:27 [notice] 27#27: gracefully shutting down
+2025/06/02 05:36:27 [notice] 28#28: gracefully shutting down
+2025/06/02 05:36:27 [notice] 20#20: exiting
+2025/06/02 05:36:27 [notice] 23#23: gracefully shutting down
+2025/06/02 05:36:27 [notice] 29#29: gracefully shutting down
+2025/06/02 05:36:27 [notice] 22#22: exiting
+2025/06/02 05:36:27 [notice] 35#35: gracefully shutting down
+2025/06/02 05:36:27 [notice] 31#31: gracefully shutting down
+2025/06/02 05:36:27 [notice] 32#32: gracefully shutting down
+2025/06/02 05:36:27 [notice] 24#24: exiting
+2025/06/02 05:36:27 [notice] 33#33: gracefully shutting down
+2025/06/02 05:36:27 [notice] 26#26: gracefully shutting down
+2025/06/02 05:36:27 [notice] 21#21: gracefully shutting down
+2025/06/02 05:36:27 [notice] 25#25: exiting
+2025/06/02 05:36:27 [notice] 27#27: exiting
+2025/06/02 05:36:27 [notice] 28#28: exiting
+2025/06/02 05:36:27 [notice] 23#23: exiting
+2025/06/02 05:36:27 [notice] 29#29: exiting
+2025/06/02 05:36:27 [notice] 31#31: exiting
+2025/06/02 05:36:27 [notice] 36#36: exiting
+2025/06/02 05:36:27 [notice] 32#32: exiting
+2025/06/02 05:36:27 [notice] 30#30: gracefully shutting down
+2025/06/02 05:36:27 [notice] 34#34: gracefully shutting down
+2025/06/02 05:36:27 [notice] 33#33: exiting
+2025/06/02 05:36:27 [notice] 26#26: exiting
+2025/06/02 05:36:27 [notice] 21#21: exiting
+2025/06/02 05:36:27 [notice] 30#30: exiting
+2025/06/02 05:36:27 [notice] 34#34: exiting
+2025/06/02 05:36:27 [notice] 30#30: exit
+2025/06/02 05:36:27 [notice] 25#25: exit
+2025/06/02 05:36:27 [notice] 28#28: exit
+2025/06/02 05:36:27 [notice] 31#31: exit
+2025/06/02 05:36:27 [notice] 33#33: exit
+2025/06/02 05:36:27 [notice] 26#26: exit
+2025/06/02 05:36:27 [notice] 23#23: exit
+2025/06/02 05:36:27 [notice] 21#21: exit
+2025/06/02 05:36:27 [notice] 34#34: exit
+2025/06/02 05:36:27 [notice] 32#32: exit
+2025/06/02 05:36:27 [notice] 22#22: exit
+2025/06/02 05:36:27 [notice] 24#24: exit
+2025/06/02 05:36:27 [notice] 27#27: exit
+2025/06/02 05:36:27 [notice] 29#29: exit
+2025/06/02 05:36:27 [notice] 20#20: exit
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2025/06/02 05:36:27 [notice] 1#1: worker process 23 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2025/06/02 05:36:27 [notice] 1#1: cache manager process 36 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/06/02 05:36:27 [notice] 1#1: worker process 31 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2025/06/02 05:36:27 [notice] 1#1: worker process 25 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: worker process 20 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: worker process 28 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2025/06/02 05:36:27 [notice] 1#1: worker process 27 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2025/06/02 05:36:27 [notice] 1#1: worker process 24 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: worker process 30 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2025/06/02 05:36:27 [notice] 1#1: worker process 21 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/06/02 05:36:27 [notice] 1#1: worker process 29 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: worker process 32 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2025/06/02 05:36:27 [notice] 1#1: worker process 26 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2025/06/02 05:36:27 [notice] 1#1: worker process 34 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2025/06/02 05:36:27 [notice] 1#1: worker process 22 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:27 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2025/06/02 05:36:27 [notice] 1#1: worker process 33 exited with code 0
+2025/06/02 05:36:27 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:36:33 [notice] 35#35: exiting
+2025/06/02 05:36:33 [notice] 35#35: exit
+2025/06/02 05:36:33 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2025/06/02 05:36:33 [notice] 1#1: worker process 35 exited with code 0
+2025/06/02 05:36:33 [notice] 1#1: exit
+2025/06/02 05:36:52 [notice] 1#1: using the "epoll" event method
+2025/06/02 05:36:52 [notice] 1#1: nginx/1.27.1
+2025/06/02 05:36:52 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2025/06/02 05:36:52 [notice] 1#1: OS: Linux 6.1.0-37-amd64
+2025/06/02 05:36:52 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/06/02 05:36:52 [notice] 1#1: start worker processes
+2025/06/02 05:36:52 [notice] 1#1: start worker process 20
+2025/06/02 05:36:52 [notice] 1#1: start worker process 21
+2025/06/02 05:36:52 [notice] 1#1: start worker process 22
+2025/06/02 05:36:52 [notice] 1#1: start worker process 23
+2025/06/02 05:36:52 [notice] 1#1: start worker process 24
+2025/06/02 05:36:52 [notice] 1#1: start worker process 25
+2025/06/02 05:36:52 [notice] 1#1: start worker process 26
+2025/06/02 05:36:52 [notice] 1#1: start worker process 27
+2025/06/02 05:36:52 [notice] 1#1: start worker process 28
+2025/06/02 05:36:52 [notice] 1#1: start worker process 29
+2025/06/02 05:36:52 [notice] 1#1: start worker process 30
+2025/06/02 05:36:52 [notice] 1#1: start worker process 31
+2025/06/02 05:36:52 [notice] 1#1: start worker process 32
+2025/06/02 05:36:52 [notice] 1#1: start worker process 33
+2025/06/02 05:36:52 [notice] 1#1: start worker process 34
+2025/06/02 05:36:52 [notice] 1#1: start worker process 35
+2025/06/02 05:36:52 [notice] 1#1: start cache manager process 36
+2025/06/02 05:36:52 [notice] 1#1: start cache loader process 37
+2025/06/02 05:37:05 [warn] 24#24: *9 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:37:05 [warn] 24#24: *9 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:37:05 [warn] 24#24: *9 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:37:05 [warn] 24#24: *9 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:37:05 [warn] 24#24: *9 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:37:05 [warn] 29#29: *19 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:37:05 [warn] 29#29: *19 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:37:05 [warn] 20#20: *35 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:37:05 [warn] 20#20: *35 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:37:49 [warn] 21#21: *73 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:37:49 [warn] 21#21: *73 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:37:52 [notice] 37#37: http file cache: /var/cache/nginx/emby/images 0.000M, bsize: 4096
+2025/06/02 05:37:52 [notice] 37#37: http file cache: /var/cache/nginx/emby/subtitles 0.000M, bsize: 4096
+2025/06/02 05:37:52 [notice] 1#1: signal 17 (SIGCHLD) received from 37
+2025/06/02 05:37:52 [notice] 1#1: cache loader process 37 exited with code 0
+2025/06/02 05:37:52 [notice] 1#1: signal 29 (SIGIO) received
+2025/06/02 05:38:19 [warn] 20#20: *87 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 2409:8931:48c:59e9:d04e:c0ff:fe51:4faf, server: default, request: "GET /web/modules/fonts/material-icons/mi_2024_05.woff2 HTTP/1.1", upstream: "http://172.17.0.1:8096/web/modules/fonts/material-icons/mi_2024_05.woff2", host: "v6.tryagain.fun:8091"
+2025/06/02 05:38:20 [warn] 22#22: *101 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:38:20 [warn] 22#22: *101 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:38:20 [warn] 22#22: *101 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:38:20 [warn] 22#22: *101 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:38:20 [warn] 22#22: *101 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:38:21 [warn] 25#25: *104 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/2/00/0000000002 while reading upstream, client: 2409:8931:48c:59e9:d04e:c0ff:fe51:4faf, server: default, request: "GET /web/modules/fonts/inter/intervariable.woff2 HTTP/1.1", upstream: "http://172.17.0.1:8096/web/modules/fonts/inter/intervariable.woff2", host: "v6.tryagain.fun:8091"
+2025/06/02 05:38:21 [warn] 23#23: *102 js: === systemInfoHandler: /emby/System/Info, the NJS VM is beginning ===
+2025/06/02 05:38:21 [warn] 23#23: *102 js: === systemInfoHandler: /emby/System/Info, the NJS VM is destroyed ===
+2025/06/02 05:39:28 [warn] 23#23: *314 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:39:28 [warn] 23#23: *314 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:42:16 [warn] 25#25: *382 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:42:16 [warn] 25#25: *382 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:42:16 [warn] 25#25: *382 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:42:16 [warn] 25#25: *382 js: cost 1ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:42:16 [warn] 25#25: *382 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:42:16 [warn] 25#25: *392 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:42:16 [warn] 25#25: *392 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:45:02 [warn] 27#27: *448 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:45:02 [warn] 27#27: *448 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:45:04 [warn] 27#27: *466 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:45:04 [warn] 27#27: *466 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:45:35 [warn] 28#28: *494 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:45:35 [warn] 28#28: *494 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:45:43 [warn] 31#31: *514 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:45:43 [warn] 31#31: *514 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:46:39 [warn] 31#31: *598 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:46:39 [warn] 31#31: *598 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:47:06 [warn] 32#32: *608 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:47:06 [warn] 32#32: *608 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:50:09 [warn] 22#22: *803 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:50:09 [warn] 22#22: *803 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:50:09 [warn] 22#22: *803 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:50:09 [warn] 22#22: *803 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:50:09 [warn] 22#22: *803 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:50:09 [warn] 22#22: *813 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:50:09 [warn] 22#22: *813 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:50:13 [warn] 23#23: *843 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:50:13 [warn] 23#23: *843 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:50:22 [warn] 24#24: *880 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:50:22 [warn] 24#24: *880 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:50:22 [warn] 24#24: *883 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:50:22 [warn] 24#24: *883 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:50:24 [warn] 25#25: *888 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:50:24 [warn] 25#25: *888 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:50:31 [warn] 26#26: *896 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:50:31 [warn] 26#26: *896 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:54:21 [warn] 27#27: *955 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:54:21 [warn] 27#27: *955 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:54:21 [warn] 27#27: *959 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:54:21 [warn] 27#27: *959 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:54:23 [warn] 27#27: *964 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:54:23 [warn] 27#27: *964 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:54:26 [warn] 27#27: *967 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:54:26 [warn] 27#27: *967 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:57:37 [warn] 29#29: *1027 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:57:37 [warn] 29#29: *1027 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:57:37 [warn] 29#29: *1027 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:57:37 [warn] 29#29: *1027 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:57:37 [warn] 29#29: *1027 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:57:38 [warn] 29#29: *1037 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:57:38 [warn] 29#29: *1037 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:57:42 [warn] 30#30: *1071 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:57:42 [warn] 30#30: *1071 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 05:58:30 [warn] 33#33: *1130 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 05:58:30 [warn] 33#33: *1130 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 05:58:30 [warn] 33#33: *1130 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 05:58:30 [warn] 33#33: *1130 js: cost 3ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 05:58:30 [warn] 33#33: *1130 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 05:58:30 [warn] 32#32: *1141 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 05:58:30 [warn] 32#32: *1141 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 06:01:26 [warn] 34#34: *1195 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:01:26 [warn] 34#34: *1195 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:01:26 [warn] 34#34: *1195 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:01:26 [warn] 34#34: *1195 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:01:26 [warn] 34#34: *1195 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:01:26 [warn] 34#34: *1205 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 06:01:26 [warn] 34#34: *1205 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 06:05:56 [warn] 25#25: *1388 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:05:56 [warn] 25#25: *1388 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:05:56 [warn] 25#25: *1388 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:05:56 [warn] 25#25: *1388 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:05:56 [warn] 25#25: *1388 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:07:00 [warn] 31#31: *1591 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:07:00 [warn] 31#31: *1591 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:07:00 [warn] 31#31: *1591 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:07:00 [warn] 31#31: *1591 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:07:00 [warn] 31#31: *1591 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:13:36 [warn] 33#33: *1675 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:13:36 [warn] 33#33: *1675 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:13:36 [warn] 33#33: *1675 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:13:36 [warn] 33#33: *1675 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:13:36 [warn] 33#33: *1675 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:13:46 [warn] 34#34: *1695 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:13:46 [warn] 34#34: *1695 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:13:46 [warn] 34#34: *1695 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:13:46 [warn] 34#34: *1695 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:13:46 [warn] 34#34: *1695 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:13:51 [warn] 35#35: *1717 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:13:51 [warn] 35#35: *1717 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:13:51 [warn] 35#35: *1717 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:13:51 [warn] 35#35: *1717 js: cost 2ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:13:51 [warn] 35#35: *1717 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:14:02 [warn] 35#35: *1745 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 06:14:02 [warn] 35#35: *1745 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 06:14:54 [error] 21#21: *1799 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: default, request: "GET /ScheduledTasks?IsEnabled=true&X-Emby-Client=Emby+Web&X-Emby-Device-Name=Edge+Windows&X-Emby-Device-Id=a6637a9c-d50d-43f5-87a4-b8ac3cc01983&X-Emby-Client-Version=4.8.11.0&X-Emby-Token=d1f6dd7bfd2f447a84c036c318e65f4f&X-Emby-Language=zh-cn HTTP/1.0", upstream: "http://172.17.0.1:8096/ScheduledTasks?IsEnabled=true&X-Emby-Client=Emby+Web&X-Emby-Device-Name=Edge+Windows&X-Emby-Device-Id=a6637a9c-d50d-43f5-87a4-b8ac3cc01983&X-Emby-Client-Version=4.8.11.0&X-Emby-Token=d1f6dd7bfd2f447a84c036c318e65f4f&X-Emby-Language=zh-cn", host: "127.0.0.1"
+2025/06/02 06:14:58 [warn] 21#21: *1811 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is beginning ===
+2025/06/02 06:14:58 [warn] 21#21: *1811 js: fetchBaseHtmlPlayer version: 4.8.11.0
+2025/06/02 06:14:58 [warn] 21#21: *1811 js: fetchBaseHtmlPlayer url: http://172.17.0.1:8096/web/modules/htmlvideoplayer/basehtmlplayer.js
+2025/06/02 06:14:58 [warn] 21#21: *1811 js: cost 6ms, fetchBaseHtmlPlayer async function cost
+2025/06/02 06:14:58 [warn] 21#21: *1811 js: === modifyBaseHtmlPlayer: /web/modules/htmlvideoplayer/basehtmlplayer.js, the NJS VM is destroyed ===
+2025/06/02 06:14:58 [warn] 22#22: *1821 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 06:14:58 [warn] 22#22: *1821 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 06:16:20 [warn] 23#23: *1875 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 06:16:20 [warn] 23#23: *1875 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
+2025/06/02 06:18:42 [warn] 25#25: *1939 js: === systemInfoHandler: /System/Info, the NJS VM is beginning ===
+2025/06/02 06:18:42 [warn] 25#25: *1939 js: === systemInfoHandler: /System/Info, the NJS VM is destroyed ===
