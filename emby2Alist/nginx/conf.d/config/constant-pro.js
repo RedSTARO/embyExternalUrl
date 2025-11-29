@@ -23,7 +23,7 @@ const redirectConfig = {
 const routeCacheConfig = {
   // 总开关,是否开启路由缓存,此为一级缓存,添加阶段为 redirect 和 proxy 之前
   // 短时间内同客户端访问相同资源不会再做判断和请求 alist,有限的防抖措施,出现问题可以关闭此选项
-  enable: true,
+  enable: false,
   // 二级缓存开关,仅针对直链,添加阶段为进入单集详情页,clientSelfAlistRule 中的和首页直接播放的不生效
   // 非 web 端且限 UA 的不建议使用,效率太低,因部分客户端详情页 UA 和播放器 UA 存在不同的情况
   enableL2: false,
@@ -32,7 +32,7 @@ const routeCacheConfig = {
   keyExpression: "r.uri:r.args.MediaSourceId", // "r.uri:r.args.MediaSourceId:r.args.X-Emby-Device-Id"
 };
 
-// 路由规则,注意有先后顺序,"proxy"规则优先级最高,其余依次,千万注意规则不要重叠,不然排错十分困难,字幕和图片走了缓存,不在此规则内
+// 路由规则,注意顺序是从上至下匹配,千万注意规则不要重叠,不然排错十分困难,字幕和图片走了缓存,不在此规则内
 // 参数1: 指定处理模式,单规则的默认值为"proxy",但是注意整体规则都不匹配默认值为"redirect",然后下面参数序号-1
 // "proxy": 原始媒体服务器处理(中转流量), "redirect": 直链 302,
 // "transcode": 转码,稍微有些歧义,大部分情况等同于"proxy",这里只是不做转码参数修改,具体是否转码由 emby 客户端自己判断上报或客户端手动切换码率控制,
@@ -85,7 +85,7 @@ const routeRule = [
 
 // 路径映射,会在 mediaMountPath 之后从上到下依次全部替换一遍,不要有重叠,注意 /mnt 会先被移除掉了
 // 参数?.1: 生效规则三维数组,有时下列参数序号加一,优先级在参数2之后,需同时满足,多个组是或关系(任一匹配)
-// 参数1: 0: 默认做字符串替换replace一次, 1: 前插, 2: 尾插, 3: replaceAll替换全部
+// 参数1: 0: 默认做字符串替换 replace 一次, 1: 前插, 2: 尾插, 3: replaceAll 替换全部
 // 参数2: 0: 默认只处理本地路径且不为 strm, 1: 只处理 strm 内部为/开头的相对路径, 2: 只处理 strm 内部为远程链接的, 3: 全部处理
 // 参数3: 来源, 参数4: 目标
 const mediaPathMapping = [

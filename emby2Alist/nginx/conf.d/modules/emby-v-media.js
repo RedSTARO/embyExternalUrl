@@ -59,7 +59,9 @@ async function fetchHls(alistFilePath, ua, alistAddr, alistToken) {
     throw new Error("cannot access alist link, " + alistLinkRes);
   }
   const directUrl = alistLinkRes.data.url;
-  if (directUrl.includes(config.strHead["115"])) {
+  const domainArr115 = config.strHead["115"];
+  const is115 = Array.isArray(domainArr115) ? domainArr115.some(d => directUrl.includes(d)) : directUrl.includes(domainArr115);
+  if (is115) {
     let customCookie = '';
     if (config.webCookie115.length > 0) {
       customCookie = config.webCookie115;
@@ -395,14 +397,20 @@ function getVMediaSourcesIsPlayback(rArgs) {
 }
 
 async function getVMediaSourcesByHls(r, source, notLocal, playSessionId) {
+  const mark = "getVMediaSourcesByHls";
   const isPlayback = r.args.IsPlayback === "true";
-  if (isPlayback) { return; }
+  if (isPlayback) {
+    return ngx.log(ngx.WARN, `${mark} not isPlayback, return;`);
+  }
   const directHlsConfig = config.directHlsConfig;
-  if (!directHlsConfig.enable) { return; }
+  if (!directHlsConfig.enable) {
+    return ngx.log(ngx.WARN, `${mark} directHlsConfig.enable is false, return;`);
+  }
+  ngx.log(ngx.WARN, `${mark} start`);
   const mediaPathMapping = config.mediaPathMapping.slice(); // warnning config.XX Objects is current VM shared variable
   config.mediaMountPath.filter(s => s).map(s => mediaPathMapping.unshift([0, 0, s, ""]));
   const mediaItemPath = util.doUrlMapping(r, source.Path, notLocal, mediaPathMapping, "mediaPathMapping");
-  ngx.log(ngx.WARN, `mapped emby file path: ${mediaItemPath}`);
+  ngx.log(ngx.WARN, `${mark} mapped emby file path: ${mediaItemPath}`);
   let realEnable = true;
   if (directHlsConfig.enableRule && directHlsConfig.enableRule.length > 0) {
     const rule = util.simpleRuleFilter(r, directHlsConfig.enableRule, mediaItemPath, null, "directHlsEnableRule");
@@ -414,7 +422,7 @@ async function getVMediaSourcesByHls(r, source, notLocal, playSessionId) {
     try {
       return await util.cost(fetchHlsWithCache, r, sourceCopy, playSessionId);
     } catch (error) {
-      ngx.log(ngx.ERR, `getVMediaSourcesByHls: ${error}`);
+      ngx.log(ngx.ERR, `${mark}: ${error}`);
     }
   }
 }

@@ -4,7 +4,7 @@
 // @name:zh      alistWebLaunchExternalPlayer
 // @name:zh-CN   alistWebLaunchExternalPlayer
 // @namespace    http://tampermonkey.net/
-// @version      1.1.1
+// @version      1.1.4
 // @description  alist Web Launc hExternal Player
 // @description:zh-cn alistWeb 调用外部播放器, 注意自行更改 UI 中的包括/排除,或下面的 @match
 // @description:en  alist Web Launch External Player
@@ -16,13 +16,19 @@
 
 (function () {
     'use strict';
-    // 隐藏异构平台的播放器图标
-    const hideByOS = true;
     // 是否替换原始外部播放器
     const replaceOriginLinks = true;
     // 是否使用内置的 Base64 图标
     const useInnerIcons = true;
+    // 移除最后几个冗余的自定义开关
+    const removeCustomBtns = false;
     // 以下为内部使用变量,请勿更改
+    const mark = "alistWebLaunchExternalPlayer";
+    const lsKeys = {
+        hideByOS: `${mark}-hideByOS`,
+        notCurrentPot: `${mark}-notCurrentPot`,
+    };
+    let links = [];
     async function init() {
         const playLinksWrapperEle = getShowEle();
         const linksEle = playLinksWrapperEle.getElementsByTagName("a");
@@ -32,42 +38,53 @@
             return;
         }
 
-        const htmlTemplate = (id, imgSrc) => 
-            `<a id="${id}" class="" href="" title="${id.replace("icon-", "")}">
+        const htmlTemplate = (id, title, imgSrc) => {
+            return imgSrc ?
+            `<a id="${id}" class="" href="" title="${title}">
                 <img class="" src="${imgSrc}" style="pointer-events: none;">
-            </a>`;
+            </a>` : 
+            `<a id="${id}" class="" href="" title="${title}">${title}</a>`;
+        }
         const iconBaseUrl = "https://fastly.jsdelivr.net/gh/bpking1/embyExternalUrl@main/embyWebAddExternalUrl/icons";
         const diffLinks = [
-            { id: "icon-StellarPlayer", imgSrc: `${iconBaseUrl}/icon-StellarPlayer.webp`
+            { id: "icon-StellarPlayer", title: "恒星播放器", imgSrc: `${iconBaseUrl}/icon-StellarPlayer.webp`
                 , getSrc: getStellarPlayerUrl, osCheck: [OS.isWindows, OS.isMacOS, OS.isAndroid], },
-            { id: "icon-MPV", imgSrc: `${iconBaseUrl}/icon-MPV.webp`, getSrc: getMPVUrl, },
-            { id: "icon-DDPlay", imgSrc: `${iconBaseUrl}/icon-DDPlay.webp`
+            { id: "icon-MPV", title: "MPV", imgSrc: `${iconBaseUrl}/icon-MPV.webp`, getSrc: getMPVUrl, },
+            { id: "icon-DDPlay", title: "弹弹Play", imgSrc: `${iconBaseUrl}/icon-DDPlay.webp`
                 , getSrc: getDDPlayUrl, osCheck: [OS.isWindows, OS.isAndroid], },
-            { id: "icon-SenPlayer", imgSrc: `${iconBaseUrl}/icon-SenPlayer.webp`
+            { id: "icon-SenPlayer", title: "SenPlayer", imgSrc: `${iconBaseUrl}/icon-SenPlayer.webp`
                 , getSrc: getSenPlayerUrl, osCheck: [OS.isIOS], },
-            { id: "icon-Copy", imgSrc: `${iconBaseUrl}/icon-Copy.webp`, getSrc: (mediaInfo) => encodeURI(mediaInfo.streamUrl), },
+            { id: "icon-Copy", title: "复制串流地址", imgSrc: `${iconBaseUrl}/icon-Copy.webp`
+                , getSrc: (mediaInfo) => encodeURI(mediaInfo.streamUrl), },
         ];
         const sameLinks = [
-            { id: "icon-IINA", imgSrc: `${iconBaseUrl}/icon-IINA.webp`
+            { id: "icon-IINA", title: "IINA", imgSrc: `${iconBaseUrl}/icon-IINA.webp`
                 , getSrc: getIINAUrl, osCheck: [OS.isMacOS], },
-            { id: "icon-PotPlayer", imgSrc: `${iconBaseUrl}/icon-PotPlayer.webp`
+            { id: "icon-PotPlayer", title: "Potplayer", imgSrc: `${iconBaseUrl}/icon-PotPlayer.webp`
                 , getSrc: getPotUrl, osCheck: [OS.isWindows], },
-            { id: "icon-VLC", imgSrc: `${iconBaseUrl}/icon-VLC.webp`, getSrc: getVlcUrl, },
-            { id: "icon-NPlayer", imgSrc: `${iconBaseUrl}/icon-NPlayer.webp`, getSrc: getNPlayerUrl, },
-            { id: "icon-infuse", imgSrc: `${iconBaseUrl}/icon-infuse.webp`
+            { id: "icon-VLC", title: "VLC", imgSrc: `${iconBaseUrl}/icon-VLC.webp`, getSrc: getVlcUrl, },
+            { id: "icon-NPlayer", title: "NPlayer", imgSrc: `${iconBaseUrl}/icon-NPlayer.webp`, getSrc: getNPlayerUrl, },
+            { id: "icon-infuse", title: "Infuse", imgSrc: `${iconBaseUrl}/icon-infuse.webp`
                 , getSrc: getInfuseUrl, osCheck: [OS.isApple], },
-            { id: "icon-MXPlayer", imgSrc: `${iconBaseUrl}/icon-MXPlayer.webp`
+            { id: "icon-MXPlayer", title: "MXPlayer", imgSrc: `${iconBaseUrl}/icon-MXPlayer.webp`
                 , getSrc: getMXUrl, osCheck: [OS.isAndroid], },
-            { id: "icon-MXPlayerPro", imgSrc: `${iconBaseUrl}/icon-MXPlayerPro.webp`
+            { id: "icon-MXPlayerPro", title: "MXPlayerPro", imgSrc: `${iconBaseUrl}/icon-MXPlayerPro.webp`
                 , getSrc: getMXProUrl, osCheck: [OS.isAndroid], },
-            { id: "icon-Fileball", imgSrc: `${iconBaseUrl}/icon-Fileball.webp`
+            { id: "icon-Fileball", title: "Fileball", imgSrc: `${iconBaseUrl}/icon-Fileball.webp`
                 , getSrc: getFileballUrl, osCheck: [OS.isApple], },
-            { id: "icon-OmniPlayer", imgSrc: `${iconBaseUrl}/icon-OmniPlayer.webp`
+            { id: "icon-OmniPlayer", title: "OmniPlayer", imgSrc: `${iconBaseUrl}/icon-OmniPlayer.webp`
                 , getSrc: getOmniPlayerUrl, osCheck: [OS.isMacOS], },
-            { id: "icon-FigPlayer", imgSrc: `${iconBaseUrl}/icon-FigPlayer.webp`
+            { id: "icon-FigPlayer", title: "FigPlayer", imgSrc: `${iconBaseUrl}/icon-FigPlayer.webp`
                 , getSrc: getFigPlayerUrl, osCheck: [OS.isMacOS], },
         ];
-        let links = replaceOriginLinks ? [...sameLinks, ...diffLinks] : [...diffLinks];
+        const customBtns = [
+            { id: "hideByOS", title: "异构播放器", imgSrc: '',  onClick: hideByOSHandler, },
+            { id: "notCurrentPot", title: "多开Potplayer", imgSrc: '',  onClick: notCurrentPotHandler, },
+        ];
+        if (!removeCustomBtns) {
+            diffLinks.push(...customBtns);
+        }
+        links = replaceOriginLinks ? [...sameLinks, ...diffLinks] : [...diffLinks];
         if (useInnerIcons) {
             // add icons from Base64, script inner, this script size 13.5KB to 64KB
             const iconsExt = getIconsExt();
@@ -79,15 +96,9 @@
             });
         }
         const insertLinks = (links, container) => {
-            let htmlStr = links.map(link => htmlTemplate(link.id, link.imgSrc)).join("");
+            const htmlStr = links.map(link => htmlTemplate(link.id, link.title, link.imgSrc)).join("");
             container.insertAdjacentHTML("beforeend", htmlStr);
         };
-        links = links.filter(link => {
-            if (!hideByOS || !link.osCheck) {
-                return true;
-            }
-            return link.osCheck.some(check => check());
-        });
         if (replaceOriginLinks) {
             playLinksWrapperEle.innerHTML = "";
         }
@@ -101,10 +112,15 @@
             linksEle[i].className = oriLinkEle.className;
             // img tag element
             const oriImgEle = oriLinkEle.children[0];
+            const newImgEle = linksEle[i].children[0];
             if (oriImgEle) {
-                linksEle[i].children[0].className = oriImgEle.className;
+                if (newImgEle) {
+                    newImgEle.className = oriImgEle.className;
+                }
             } else {
-                linksEle[i].children[0].style = "height: inherit";
+                if (newImgEle) {
+                    newImgEle.style = "height: inherit";
+                }
             }
         }
         
@@ -139,16 +155,26 @@
         // add link href
         links.map(link => {
             const linkEle = document.getElementById(link.id);
-            if (linkEle) {
+            if (!linkEle) { return; }
+            if (link.getSrc) {
                 linkEle.href = link.getSrc(mediaInfo);
+            } else if (link.onClick) {
+                linkEle.onclick = (e) => {
+                    e.preventDefault();
+                    link.onClick(e);
+                }
             }
             if (link.id === "icon-PotPlayer") {
                 linkEle.onclick = (e) => {
                     e.preventDefault();
                     let url = e.target.href;
+                    const notCurrentPotFlag = localStorage.getItem(lsKeys.notCurrentPot) === "1";
+                    if (notCurrentPotFlag) {
+                        url = url.replace("/current", "");
+                    }
                     writeClipboard(url).then(() => {
                         console.log("成功写入剪切板真实深度链接: ", url);
-                        url = `potplayer:///current/clipboard`;
+                        url = `potplayer://${notCurrentPotFlag ? "" : "/current"}/clipboard`;
                         window.open(url, "_self");
                     });
                 }
@@ -159,6 +185,10 @@
                 }
             }
         });
+        if (!removeCustomBtns) {
+            hideByOSHandler();
+            notCurrentPotHandler();
+        }
     }
 
     // copy from /embyWebAddExternalUrl/iconsExt.js, 如果更改了以下内容,请同步更改 ./iconsExt
@@ -283,15 +313,17 @@
     }
 
     function getPotUrl(mediaInfo) {
-        return `potplayer://${encodeURI(mediaInfo.streamUrl)} /sub=${encodeURI(mediaInfo.subUrl)} /current  /title="${mediaInfo.title}"`;
+        return `potplayer://${encodeURI(mediaInfo.streamUrl)} /sub=${encodeURI(mediaInfo.subUrl)} /current /title="${mediaInfo.title}"`;
     }
 
     // https://wiki.videolan.org/Android_Player_Intents/
     function getVlcUrl(mediaInfo) {
         // android subtitles:  https://code.videolan.org/videolan/vlc-android/-/issues/1903
         let vlcUrl = `intent:${encodeURI(mediaInfo.streamUrl)}#Intent;package=org.videolan.vlc;type=video/*;S.subtitles_location=${encodeURI(mediaInfo.subUrl)};S.title=${encodeURI(mediaInfo.title)};i.position=${mediaInfo.position};end`;
-        if (OS.isWindows()) {
-            // 桌面端需要额外设置,参考这个项目: https://github.com/stefansundin/vlc-protocol 
+        if (OS.isWindows() || OS.isMacOS()) {
+            // 桌面端需要额外设置,参考这个项目:
+            // new: https://github.com/northsea4/vlc-protocol
+            // old: https://github.com/stefansundin/vlc-protocol
             vlcUrl = `vlc://${encodeURI(mediaInfo.streamUrl)}`;
         }
         if (OS.isIOS()) {
@@ -300,6 +332,28 @@
             vlcUrl = `vlc-x-callback://x-callback-url/stream?url=${encodeURIComponent(mediaInfo.streamUrl)}&sub=${encodeURIComponent(mediaInfo.subUrl)}`;
         }
         return vlcUrl;
+    }
+
+    // MPV
+    function getMPVUrl(mediaInfo) {
+        // 桌面端需要额外设置,参考这个项目:
+        // new: https://github.com/northsea4/mpvplay-protocol
+        // old: https://github.com/akiirui/mpv-handler
+        let streamUrl64 = btoa(String.fromCharCode.apply(null, new Uint8Array(new TextEncoder().encode(mediaInfo.streamUrl))))
+            .replace(/\//g, "_").replace(/\+/g, "-").replace(/\=/g, "");
+        let MPVUrl = `mpv://play/${streamUrl64}`;
+        if (mediaInfo.subUrl.length > 0) {
+            let subUrl64 = btoa(mediaInfo.subUrl).replace(/\//g, "_").replace(/\+/g, "-").replace(/\=/g, "");
+            MPVUrl = `mpv://play/${streamUrl64}/?subfile=${subUrl64}`;
+        }
+
+        if (OS.isIOS() || OS.isAndroid()) {
+            MPVUrl = `mpv://${encodeURI(mediaInfo.streamUrl)}`;
+        }
+        if (OS.isMacOS()) {
+            MPVUrl = `mpvplay://${encodeURI(mediaInfo.streamUrl)}`;
+        }
+        return MPVUrl;
     }
 
     // https://sites.google.com/site/mxvpen/api
@@ -335,23 +389,6 @@
         return `stellar://play/${encodeURI(mediaInfo.streamUrl)}`;
     }
 
-    // MPV
-    function getMPVUrl(mediaInfo) {
-        //桌面端需要额外设置,使用这个项目: https://github.com/akiirui/mpv-handler
-        let streamUrl64 = btoa(String.fromCharCode.apply(null, new Uint8Array(new TextEncoder().encode(mediaInfo.streamUrl))))
-            .replace(/\//g, "_").replace(/\+/g, "-").replace(/\=/g, "");
-        let MPVUrl = `mpv://play/${streamUrl64}`;
-        if (mediaInfo.subUrl.length > 0) {
-            let subUrl64 = btoa(mediaInfo.subUrl).replace(/\//g, "_").replace(/\+/g, "-").replace(/\=/g, "");
-            MPVUrl = `mpv://play/${streamUrl64}/?subfile=${subUrl64}`;
-        }
-
-        if (OS.isIOS() || OS.isAndroid()) {
-            MPVUrl = `mpv://${encodeURI(mediaInfo.streamUrl)}`;
-        }
-        return MPVUrl;
-    }
-
     // see https://greasyfork.org/zh-CN/scripts/443916
     function getDDPlayUrl(mediaInfo) {
         // Subtitles Not Supported: https://github.com/kaedei/dandanplay-libraryindex/blob/master/api/ClientProtocol.md
@@ -377,6 +414,41 @@
 
     function getSenPlayerUrl(mediaInfo) {
         return `SenPlayer://x-callback-url/play?url=${encodeURIComponent(mediaInfo.streamUrl)}`;
+    }
+
+    function lsCheckSetBoolean(event, lsKeyName) {
+        let flag = localStorage.getItem(lsKeyName) === "1";
+        if (event) {
+            flag = !flag;
+            localStorage.setItem(lsKeyName, flag ? "1" : "0");
+        }
+        return flag;
+    }
+
+    function hideByOSHandler(event) {
+        const link = document.getElementById("hideByOS");
+        if (!link) {
+            return;
+        }
+        const flag = lsCheckSetBoolean(event, lsKeys.hideByOS);
+        const playLinksWrapperEle = getShowEle();
+        const linksEle = playLinksWrapperEle.getElementsByTagName("a");
+        Array.from(linksEle).forEach(linkEle => {
+            const link = links.find(link => link.id === linkEle.id);
+            const shouldHide = flag && link.osCheck && !link.osCheck.some(check => check());
+            console.log(`${link.id} Should Hide: ${shouldHide}`);
+            linkEle.style.display = shouldHide ? 'none' : 'block';
+        });
+        link.style.backgroundColor = flag ? "rgb(0, 145, 255)" : "";
+    }
+
+    function notCurrentPotHandler(event) {
+        const link = document.getElementById("notCurrentPot");
+        if (!link) {
+            return;
+        }
+        const flag = lsCheckSetBoolean(event, lsKeys.notCurrentPot);
+        link.style.backgroundColor = flag ? "rgb(0, 145, 255)" : "";
     }
 
     async function copyUrl(mediaInfo, target) {

@@ -52,8 +52,8 @@ const strHead = {
     },
     // 安卓与 TV 客户端不太好区分,浏览器 UA 关键字也有交叉重叠,请使用 xEmbyClients 参数或使用正则
   },
-  "115": "115.com",
-  ali: "aliyundrive.net",
+  "115": ["115.com", "115cdn.net"],
+  ali: ["aliyundrive.net"],
   userIds: {
     mediaPathMappingGroup01: ["ac0d220d548f43bbb73cf9b44b2ddf0e"],
     allowInteractiveSearch: [],
@@ -119,7 +119,7 @@ const symlinkRule = [
   // [0, "/mnt/sda1"],
 ];
 
-// 路由规则,注意有先后顺序,"proxy"规则优先级最高,其余依次,千万注意规则不要重叠,不然排错十分困难,字幕和图片走了缓存,不在此规则内
+// 路由规则,注意顺序是从上至下匹配,千万注意规则不要重叠,不然排错十分困难,字幕和图片走了缓存,不在此规则内
 // 参数1: 指定处理模式,单规则的默认值为"proxy",但是注意整体规则都不匹配默认值为"redirect",然后下面参数序号-1
 // "proxy": 原始媒体服务器处理(中转流量), "redirect": 直链 302,
 // "transcode": 转码,稍微有些歧义,大部分情况等同于"proxy",这里只是不做转码参数修改,具体是否转码由 emby 客户端自己判断上报或客户端手动切换码率控制,
@@ -172,7 +172,7 @@ const routeRule = [
 
 // 路径映射,会在 mediaMountPath 之后从上到下依次全部替换一遍,不要有重叠,注意 /mnt 会先被移除掉了
 // 参数?.1: 生效规则三维数组,有时下列参数序号加一,优先级在参数2之后,需同时满足,多个组是或关系(任一匹配)
-// 参数1: 0: 默认做字符串替换replace一次, 1: 前插, 2: 尾插, 3: replaceAll替换全部
+// 参数1: 0: 默认做字符串替换 replace 一次, 1: 前插, 2: 尾插, 3: replaceAll 替换全部
 // 参数2: 0: 默认只处理本地路径且不为 strm, 1: 只处理 strm 内部为/开头的相对路径, 2: 只处理 strm 内部为远程链接的, 3: 全部处理
 // 参数3: 来源, 参数4: 目标
 const mediaPathMapping = [
@@ -207,8 +207,9 @@ const alistRawUrlMapping = [
 ];
 
 // 指定是否转发由 njs 获取 strm/远程链接 重定向后直链地址的规则,例如 strm/远程链接 内部为局域网 ip 或链接需要验证
-// 参数1: 分组名,组内为与关系(全部匹配),多个组和没有分组的规则是或关系(任一匹配),然后下面参数序号-1
-// 参数2: 匹配类型或来源(字符串参数类型),默认为 "filePath": mediaPathMapping 映射后的 strm/远程链接 内部链接
+// 匹配来源为入库媒体的文件路径
+// 参数?.1: 分组名,组内为与关系(全部匹配),多个组和没有分组的规则是或关系(任一匹配),然后下面参数序号-1
+// 参数?.2: 匹配类型或来源(字符串参数类型),默认为 "filePath": mediaPathMapping 映射后的 strm/远程链接 内部链接
 // ,有分组时不可省略填写,可为表达式
 // 参数3: 0: startsWith(str), 1: endsWith(str), 2: includes(str), 3: match(/ain/g)
 // 参数4: 匹配目标,为数组的多个参数时,数组内为或关系(任一匹配)
@@ -216,9 +217,10 @@ const redirectStrmLastLinkRule = [
   [0, strHead.lanIp.map(s => "http://" + s)],
   // [0, alistAddr],
   // [0, "http:"],
-  // 参数5: 请求验证类型,当前 alistAddr 不需要此参数
-  // 参数6: 当前 alistAddr 不需要此参数,alistSignExpireTime
+  // 参数?.5: 请求验证类型,"sign": alist sign 验证, "basic": Basic Auth 账号密码,当前 alistAddr 不需要此参数
+  // 参数?.6: 请求验证信息,":" 分隔,当前 alistAddr 不需要此参数,alistSignExpireTime
   // [3, "http://otheralist1.com", "sign", `${alistToken}:${alistSignExpireTime}`],
+  // [2, "http://other-WebDAV.com", "basic", `${username}:${password}`],
   // useGroup01 同时满足才命中
   // ["useGroup01", "filePath", "startsWith", strHead.lanIp.map(s => "http://" + s)], // 目标地址
   // ["useGroup01", "r.args.X-Emby-Client", "startsWith:not", strHead.xEmbyClients.seekBug], // 链接入参,客户端类型
@@ -228,8 +230,8 @@ const redirectStrmLastLinkRule = [
 
 // 指定客户端自己请求并获取 alist 直链的规则,代码优先级在 redirectStrmLastLinkRule 之后
 // 特殊情况使用,则此处必须使用域名且公网畅通,用不着请保持默认
-// 参数1: 分组名,组内为与关系(全部匹配),多个组和没有分组的规则是或关系(任一匹配),然后下面参数序号-1
-// 参数2: 匹配类型或来源(字符串参数类型),优先级高"filePath": 文件路径(Item.Path),默认为"alistRes": alist 返回的链接 raw_url
+// 参数?.1: 分组名,组内为与关系(全部匹配),多个组和没有分组的规则是或关系(任一匹配),然后下面参数序号-1
+// 参数?.2: 匹配类型或来源(字符串参数类型),优先级高"filePath": 文件路径(Item.Path),默认为"alistRes": alist 返回的链接 raw_url
 // ,有分组时不可省略填写,可为表达式,然后下面参数序号-1
 // 参数3: 0: startsWith(str), 1: endsWith(str), 2: includes(str), 3: match(/ain/g)
 // 参数4: 匹配目标,为数组的多个参数时,数组内为或关系(任一匹配)

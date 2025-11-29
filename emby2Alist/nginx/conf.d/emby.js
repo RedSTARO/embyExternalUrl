@@ -316,20 +316,25 @@ function playbackInfoHandler(r, upstreamBody) {
 }
 
 async function vMediaSourcesHandler(r, upstreamBody) {
-  const body = upstreamBody;
-  let extMediaSources = [];
-  body.MediaSources.map(async source => {
-    const isStrm = util.checkIsStrmByMediaSource(source);
-    const notLocal = source.IsRemote || isStrm;
-    // virtualMediaSources, fast placeholder, all PlaybackInfo too slow, switch prosess on play start
-    if (config.directHlsConfig && config.directHlsConfig.enable) {
-      const vMediaSources = await embyVMedia.getVMediaSourcesByHls(r, source, notLocal, body.PlaySessionId);
-      if (vMediaSources && vMediaSources.length > 0) {
-        extMediaSources = extMediaSources.concat(vMediaSources);
+  try {
+    const body = upstreamBody;
+    let extMediaSources = [];
+    for (const key in body.MediaSources) {
+      const source = body.MediaSources[key];
+      const isStrm = util.checkIsStrmByMediaSource(source);
+      const notLocal = source.IsRemote || isStrm;
+      // virtualMediaSources, fast placeholder, all PlaybackInfo too slow, switch prosess on play start
+      if (config.directHlsConfig && config.directHlsConfig.enable) {
+        const vMediaSources = await embyVMedia.getVMediaSourcesByHls(r, source, notLocal, body.PlaySessionId);
+        if (vMediaSources && vMediaSources.length > 0) {
+          extMediaSources = extMediaSources.concat(vMediaSources);
+        }
       }
     }
-  });
-  return extMediaSources;
+    return extMediaSources;
+  } catch (error) {
+    ngx.log(ngx.ERR, `vMediaSourcesHandler: ${error}`);
+  }
 }
 
 function modifyDirectPlayInfo(r, upstreamBody) {
@@ -382,7 +387,7 @@ function modifyDirectPlayInfo(r, upstreamBody) {
         if (!source.TranscodingUrl) {
           // can force modify TranscodingUrl, but following upstream is better
           // because upstream self have a WebUI settings
-          ngx.log(ngx.WARN, "upstream MediaSource.TranscodingUrl is empty,judgment to DirectPlay");
+          ngx.log(ngx.WARN, "upstream MediaSource.TranscodingUrl is empty,judgment to DirectPlay(redirect)");
           source.XRouteMode = util.ROUTE_ENUM.redirect; // for debug
         } else {
           r.warn(`routeMode modify playback supports`);
@@ -710,7 +715,9 @@ async function redirectAfter(r, url, cachedRouteDictKey) {
       const ua = r.headersIn["User-Agent"];
       // webClient download only have itemId on pathParam
       let cacheKey = util.parseExpression(r, routeCacheConfig.keyExpression) ?? r.uri;
-      cacheKey = url.includes(config.strHead["115"]) ? `${cacheKey}:${ua}` : cacheKey;
+      const domainArr115 = config.strHead["115"];
+      const uaIsolation = Array.isArray(domainArr115) ? domainArr115.some(d => url.includes(d)) : url.includes(domainArr115);
+      cacheKey = uaIsolation ? `${cacheKey}:${ua}` : cacheKey;
       r.log(`redirectAfter cacheKey: ${cacheKey}`);
       // cachePreload added args in url
       const cacheLevle = r.args[util.ARGS.cacheLevleKey] ?? util.CHCHE_LEVEL_ENUM.L1;

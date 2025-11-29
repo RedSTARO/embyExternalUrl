@@ -1,6 +1,34 @@
 
 ### 文章更新记录
 
+#### 2025-10-15
+1.feat(emby2Alist&plex2Alist): 针对远程链接添加 Basic 认证方式支持
+
+#### 2025-04-02
+1.fix(emby2Alist&plex2Alist): 关闭默认的路由缓存配置
+
+#### 2025-03-10
+
+1.fix(emby2Alist&plex2Alist): 修复 include 错误
+
+#### 2025-02-24
+
+1.fix(emby2Alist&plex2Alist): 修复直链缓存
+
+#### 2024-12-28
+
+1.fix(emby2Alist&plex2Alist): 修复 getClientSelfAlistLink 编码
+
+2.fix(emby2Alist&plex2Alist): 修改内网IP的识别通过header中的X-Real-IP、Proxy-Client-IP等实现
+
+3.fix(emby2Alist&plex2Alist): 修复错误的 routeRule 分组规则
+
+4.fix(emby2Alist): 去除错误的 api_key 替换导致的登录过期转圈
+
+5.fix(emby2Alist): 修复日志打印
+
+6.fix(emby2Alist): 修复 directHlsConfig 错误替换的异步循环
+
 #### 2024-12-08
 
 1.fix(emby2Alist&plex2Alist): 回退部分 encodeURI
