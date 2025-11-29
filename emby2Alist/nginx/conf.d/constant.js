@@ -15,7 +15,7 @@ import nginxConfig from "./config/constant-nginx.js";
 const embyHost = "http://127.0.0.1:8096";
 
 // emby/jellyfin api key, 在 emby/jellyfin 后台设置
-const embyApiKey = "fa65c4330aa54b648d0563bdfaa1319f";
+const embyApiKey = "a32ec41bc4214127a43e52a0150879fc";
 
 // 挂载工具 rclone/CD2 多出来的挂载目录, 例如将 od,gd 挂载到 /mnt 目录下: /mnt/onedrive /mnt/gd ,那么这里就填写 /mnt
 // 通常配置一个远程挂载根路径就够了,默认非此路径开头文件将转给原始 emby 处理
